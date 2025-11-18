@@ -253,7 +253,7 @@ op-revm = { git = "https://github.com/celo-org/revm", rev = "1531912", default-f
 
 [patch."https://github.com/op-rs/kona"]
 kona-mpt = { git = "https://github.com/celo-org/kona", rev = "b0ea596" }
-kona-derive = { git = "https://github.com/celo-org/kona", rev = "b0ea596", default-features = false }
+kona-derive = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f", default-features = false }
 kona-driver = { git = "https://github.com/celo-org/kona", rev = "b0ea596" }
 kona-preimage = { git = "https://github.com/celo-org/kona", rev = "b0ea596", features = [
     "rkyv",
