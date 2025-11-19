@@ -236,19 +236,19 @@ p256 = { git = "https://github.com/sp1-patches/elliptic-curves", tag = "patch-p2
 k256 = { git = "https://github.com/sp1-patches/elliptic-curves", tag = "patch-k256-13.4-sp1-5.0.0" }
 
 [patch."https://github.com/op-rs/kona"]
-kona-mpt = { git = "https://github.com/celo-org/kona", rev = "b0ea596" }
-kona-derive = { git = "https://github.com/celo-org/kona", rev = "b0ea596", default-features = false }
-kona-driver = { git = "https://github.com/celo-org/kona", rev = "b0ea596" }
-kona-preimage = { git = "https://github.com/celo-org/kona", rev = "b0ea596", features = [
+kona-mpt = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f" }
+kona-derive = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f", default-features = false }
+kona-driver = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f" }
+kona-preimage = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f", features = [
     "rkyv",
     "serde",
 ] }
-kona-executor = { git = "https://github.com/celo-org/kona", rev = "b0ea596" }
-kona-proof = { git = "https://github.com/celo-org/kona", rev = "b0ea596" }
-kona-client = { git = "https://github.com/celo-org/kona", rev = "b0ea596" }
-kona-host = { git = "https://github.com/celo-org/kona", rev = "b0ea596" }
-kona-providers-alloy = { git = "https://github.com/celo-org/kona", rev = "b0ea596" }
-kona-rpc = { git = "https://github.com/celo-org/kona", rev = "b0ea596", default-features = false }
-kona-protocol = { git = "https://github.com/celo-org/kona", rev = "b0ea596", default-features = false }
-kona-registry = { git = "https://github.com/celo-org/kona", rev = "b0ea596", default-features = false }
-kona-genesis = { git = "https://github.com/celo-org/kona", rev = "b0ea596", default-features = false }
+kona-executor = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f" }
+kona-proof = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f" }
+kona-client = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f" }
+kona-host = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f" }
+kona-providers-alloy = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f" }
+kona-rpc = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f", default-features = false }
+kona-protocol = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f", default-features = false }
+kona-registry = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f", default-features = false }
+kona-genesis = { git = "https://github.com/EspressoSystems/kona", rev = "ee5865f", default-features = false }
