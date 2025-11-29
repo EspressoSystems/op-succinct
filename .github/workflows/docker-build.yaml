@@ -89,3 +89,23 @@ jobs:
           labels: ${{ steps.meta-succinct-eigenda.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Docker meta for proposer-eigenda
+        id: meta-proposer-eigenda
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository }}/proposer-eigenda
+          tags: |
+            type=ref,event=tag
+            type=sha
+
+      - name: Build and push proposer-eigenda
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: fault-proof/Dockerfile.proposer.eigenda
+          push: true
+          tags: ${{ steps.meta-proposer-eigenda.outputs.tags }}
+          labels: ${{ steps.meta-proposer-eigenda.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
