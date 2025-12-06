@@ -313,7 +313,8 @@ impl OPSuccinctDataFetcher {
     async fn fetch_and_save_rollup_config(
         rpc_config: &RPCConfig,
     ) -> Result<(CeloRollupConfig, PathBuf)> {
-        // Fetch raw JSON first to handle unknown fields (e.g., Espresso's batch_authenticator_address)
+        // Fetch raw JSON first to handle unknown fields (e.g., Espresso's
+        // batch_authenticator_address)
         let mut raw_config: Value =
             Self::fetch_rpc_data(&rpc_config.l2_node_rpc, "optimism_rollupConfig", vec![]).await?;
 

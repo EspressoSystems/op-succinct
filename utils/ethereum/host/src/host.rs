@@ -59,11 +59,7 @@ impl OPSuccinctHost for SingleChainOPSuccinctHost {
             .map(|v| v.to_lowercase() == "true" || v == "1")
             .unwrap_or(false);
 
-        let block_id = if use_safe_head {
-            BlockId::safe()
-        } else {
-            BlockId::finalized()
-        };
+        let block_id = if use_safe_head { BlockId::safe() } else { BlockId::finalized() };
 
         let l2_block_number = fetcher.get_l2_header(block_id).await?;
         Ok(Some(l2_block_number.number))
