@@ -2,7 +2,7 @@ name: Build & push EigenDA fault-proof images
 
 on:
   push:
-    branches: [ espresso-integration ]
+    branches: [ espresso-integration, philippe/adjustments-espresso-config-files ]
   workflow_dispatch: {}
 
 jobs:
