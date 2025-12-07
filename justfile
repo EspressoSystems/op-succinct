@@ -392,8 +392,10 @@ audit-forkdiff:
 
     echo "Audit forkdiff written to $outpath"
 
+# Compile contracts and generate bindings
 compile-contracts:
     (cd contracts && forge install && forge build)
+    cargo build -p op-succinct-bindings
 
 # Run all unit and integration tests except for the specified ones.
 tests: compile-contracts
