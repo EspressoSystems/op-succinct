@@ -392,8 +392,11 @@ audit-forkdiff:
 
     echo "Audit forkdiff written to $outpath"
 
+compile-contracts:
+    (cd contracts && forge install && forge build)
+
 # Run all unit and integration tests except for the specified ones.
-tests:
+tests: compile-contracts
    cargo t --release \
     -- \
     --skip test_cycle_count_diff \
