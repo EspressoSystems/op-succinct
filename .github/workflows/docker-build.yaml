@@ -41,11 +41,11 @@ jobs:
             type=ref,event=tag
             type=sha
 
-      - name: Docker meta for op-succinct-eigenda
-        id: meta-succinct-eigenda
+      - name: Docker meta for op-succinct-celo
+        id: meta-succinct-celo
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}/op-succinct-eigenda
+          images: ghcr.io/${{ github.repository }}/op-succinct-celo
           tags: |
             type=ref,event=tag
             type=sha
@@ -79,33 +79,33 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Build and push op-succinct-eigenda
+      - name: Build and push op-succinct-celo
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: validity/Dockerfile.eigenda
+          file: validity/Dockerfile.celo
           push: true
-          tags: ${{ steps.meta-succinct-eigenda.outputs.tags }}
-          labels: ${{ steps.meta-succinct-eigenda.outputs.labels }}
+          tags: ${{ steps.meta-succinct-celo.outputs.tags }}
+          labels: ${{ steps.meta-succinct-celo.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Docker meta for proposer-eigenda
-        id: meta-proposer-eigenda
+      - name: Docker meta for proposer-celo
+        id: meta-proposer-celo
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}/proposer-eigenda
+          images: ghcr.io/${{ github.repository }}/proposer-celo
           tags: |
             type=ref,event=tag
             type=sha
 
-      - name: Build and push proposer-eigenda
+      - name: Build and push proposer-celo
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: fault-proof/Dockerfile.proposer.eigenda
+          file: fault-proof/Dockerfile.proposer.celo
           push: true
-          tags: ${{ steps.meta-proposer-eigenda.outputs.tags }}
-          labels: ${{ steps.meta-proposer-eigenda.outputs.labels }}
+          tags: ${{ steps.meta-proposer-celo.outputs.tags }}
+          labels: ${{ steps.meta-proposer-celo.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max

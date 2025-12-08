@@ -1,4 +1,4 @@
-name: Build & push EigenDA fault-proof images
+name: Build & push Celo fault-proof images
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  build-fault-proof-eigenda:
+  build-fault-proof-celo:
     runs-on: ubuntu-24.04-8core
     permissions:
       contents: read
@@ -20,23 +20,23 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      # ---------- Proposer (EigenDA) metadata ----------
-      - name: Docker meta for proposer-eigenda
+      # ---------- Proposer (Celo) metadata ----------
+      - name: Docker meta for proposer-celo
         id: meta-proposer
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}/op-succinct-lite-proposer-eigenda
+          images: ghcr.io/${{ github.repository }}/op-succinct-lite-proposer-celo
           tags: |
             type=ref,event=tag
             type=sha
             type=raw,value=latest,enable={{is_default_branch}}
 
-      # ---------- Challenger (EigenDA) metadata ----------
-      - name: Docker meta for challenger-eigenda
+      # ---------- Challenger (Celo) metadata ----------
+      - name: Docker meta for challenger-celo
         id: meta-challenger
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}/op-succinct-lite-challenger-eigenda
+          images: ghcr.io/${{ github.repository }}/op-succinct-lite-challenger-celo
           tags: |
             type=ref,event=tag
             type=sha
@@ -50,8 +50,8 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # ---------- Build & push proposer (EigenDA) ----------
-      - name: Build and push proposer-eigenda
+      # ---------- Build & push proposer (Celo) ----------
+      - name: Build and push proposer-celo
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -62,8 +62,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      # ---------- Build & push challenger (EigenDA) ----------
-      - name: Build and push challenger-eigenda
+      # ---------- Build & push challenger (Celo) ----------
+      - name: Build and push challenger-celo
         uses: docker/build-push-action@v6
         with:
           context: .
