@@ -55,7 +55,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: fault-proof/Dockerfile.proposer.eigenda
+          file: fault-proof/Dockerfile.proposer.celo
           push: true
           tags: ${{ steps.meta-proposer.outputs.tags }}
           labels: ${{ steps.meta-proposer.outputs.labels }}
@@ -67,7 +67,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: fault-proof/Dockerfile.challenger
+          file: fault-proof/Dockerfile.challenger.celo
           push: true
           tags: ${{ steps.meta-challenger.outputs.tags }}
           labels: ${{ steps.meta-challenger.outputs.labels }}
