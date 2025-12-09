@@ -319,8 +319,9 @@ impl OPSuccinctDataFetcher {
             Self::fetch_rpc_data(&rpc_config.l2_rpc, "eth_chainId", vec![]).await?;
         let chain_id: u64 = chain_id.parse::<U64>().unwrap().to();
 
-        // Fetch rollup config from node RPC (best-effort for hash comparison)
-        let node_rpc_config: Option<CeloRollupConfig> =
+        // Fetch raw JSON first to handle unknown fields (e.g., Espresso's
+        // batch_authenticator_address)
+        let mut raw_node_rpc_config: Option<Value> =
             Self::fetch_rpc_data(&rpc_config.l2_node_rpc, "optimism_rollupConfig", vec![])
                 .await
                 .inspect(|_| {
@@ -334,6 +335,22 @@ impl OPSuccinctDataFetcher {
                     );
                 })
                 .ok();
+
+        if let Some(config) = &mut raw_node_rpc_config {
+            // Strip unknown fields that are not part of the standard rollup config
+            // This allows compatibility with Espresso and other forks that add custom fields
+            if let Some(obj) = config.as_object_mut() {
+                // Remove Espresso-specific fields that CeloRollupConfig doesn't recognize
+                obj.remove("batch_authenticator_address");
+                obj.remove("caff_node_config");
+            }
+        }
+
+        // Deserialize the cleaned config
+        let node_rpc_config: Option<CeloRollupConfig> =
+            raw_node_rpc_config.clone().map(serde_json::from_value).transpose().with_context(
+                || format!("Failed to parse rollup config: {:?}", raw_node_rpc_config),
+            )?;
 
         // Try to fetch rollup config from celo-registry; if found, compare hashes and use it
         let rollup_config = if let Some(registry_config) = ROLLUP_CONFIGS.get(&chain_id) {
