@@ -54,3 +54,7 @@ config.alloy
 
 # Generated audit forkdiffs
 audits/audit-forkdiff.html
+
+
+# IDE
+.idea
