@@ -7,6 +7,9 @@ authors.workspace = true
 repository.workspace = true
 homepage.workspace = true
 
+[lib]
+doctest = false
+
 [dependencies]
 alloy = { workspace = true }
 alloy-sol-types = { workspace = true }
