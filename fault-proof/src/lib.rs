@@ -159,7 +159,11 @@ where
         }
 
         let latest_game_index = game_count - U256::from(1);
-        tracing::debug!("Latest game index: {:?}", latest_game_index);
+        // TODO (Keyao) Reduce the logs for game count.
+        // <https://app.asana.com/1/1208976916964769/project/1209392461754458/task/1212777441857737?focus=true>
+        // 
+        // The logged index is game count - 1.
+        tracing::info!("Latest game index: {:?}", latest_game_index);
 
         Ok(Some(latest_game_index))
     }
