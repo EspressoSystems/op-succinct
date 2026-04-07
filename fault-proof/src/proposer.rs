@@ -285,7 +285,7 @@ where
         };
 
         if next_index <= latest_index {
-            tracing::info!("Latest game index: {:?}", latest_index);
+            tracing::info!(game_index = %latest_index, "Latest game index");
         }
 
         while next_index <= latest_index {
