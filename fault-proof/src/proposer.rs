@@ -284,6 +284,10 @@ where
             return Ok(());
         };
 
+        if next_index <= latest_index {
+            tracing::info!("Latest game index: {:?}", latest_index);
+        }
+
         while next_index <= latest_index {
             self.fetch_game(next_index).await?;
             next_index += U256::from(1);
