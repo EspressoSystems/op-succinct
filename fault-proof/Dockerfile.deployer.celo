@@ -57,6 +57,10 @@ RUN cargo build --release --bin fetch-fault-dispute-game-config --features eigen
 # ---------------------------------------------------------------------------
 FROM ghcr.io/foundry-rs/foundry:stable AS contracts-builder
 
+# The foundry image runs as uid=1000(foundry) by default, but COPY creates
+# root-owned files. Switch to root so forge can write the out/ directory.
+USER root
+
 WORKDIR /app/contracts
 
 # Copy contract sources and dependencies.
