@@ -1,0 +1,113 @@
+# syntax=docker/dockerfile:1.4
+#
+# FDG Deployer image for Celo/Espresso devnets.
+#
+# Bundles:
+#   - fetch-fault-dispute-game-config  (computes vkeys + rollup config hash)
+#   - forge / cast                     (deploys and configures contracts)
+#   - Pre-built contract artifacts     (OPSuccinctFaultDisputeGame and deps)
+#
+# Usage:
+#   The container expects configuration via environment variables (L1_RPC,
+#   L2_RPC, L2_NODE_RPC, PRIVATE_KEY, etc.) and runs the full deployment
+#   pipeline: fetch config -> forge deploy -> factory wiring.
+
+# ---------------------------------------------------------------------------
+# Stage 1: Rust build environment (same base as proposer)
+# ---------------------------------------------------------------------------
+FROM rust:1.89.0-trixie AS base
+
+WORKDIR /app
+
+# Install required build dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    clang \
+    build-essential \
+    git \
+    pkg-config \
+    libssl-dev \
+    protobuf-compiler \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Go 1.24 (required for sp1-recursion-gnark-ffi)
+ARG TARGETARCH
+RUN curl -LO https://go.dev/dl/go1.24.0.linux-${TARGETARCH}.tar.gz && \
+    tar -C /usr/local -xzf go1.24.0.linux-${TARGETARCH}.tar.gz && \
+    rm go1.24.0.linux-${TARGETARCH}.tar.gz
+ENV PATH="/usr/local/go/bin:${PATH}"
+
+# Install SP1
+RUN curl -L https://sp1.succinct.xyz | bash && \
+    ~/.sp1/bin/sp1up -v 6.0.2 && \
+    ~/.sp1/bin/cargo-prove prove --version
+
+# ---------------------------------------------------------------------------
+# Stage 2: Build fetch-fault-dispute-game-config
+# ---------------------------------------------------------------------------
+FROM base AS builder
+
+WORKDIR /app
+COPY . .
+
+RUN cargo build --release --bin fetch-fault-dispute-game-config --features eigenda
+
+# ---------------------------------------------------------------------------
+# Stage 3: Pre-compile Solidity contracts
+# ---------------------------------------------------------------------------
+FROM ghcr.io/foundry-rs/foundry:stable AS contracts-builder
+
+WORKDIR /app/contracts
+
+# Copy contract sources and dependencies.
+# test/helpers is needed because DeployOPSuccinctFDG.s.sol imports Utils.sol
+# and JSONDecoder.sol from there.
+# The lib/ directory contains git submodules — the CI checkout handles
+# recursive submodule init. The .git metadata inside submodules is not needed;
+# forge resolves imports via the remappings in foundry.toml.
+COPY contracts/foundry.toml contracts/foundry.toml
+COPY contracts/src contracts/src
+COPY contracts/script contracts/script
+COPY contracts/test/helpers contracts/test/helpers
+COPY contracts/lib contracts/lib
+
+WORKDIR /app/contracts/contracts
+RUN forge build
+
+# ---------------------------------------------------------------------------
+# Stage 4: Runtime image
+# ---------------------------------------------------------------------------
+FROM ubuntu:24.04
+
+WORKDIR /app
+
+# Install runtime dependencies
+RUN apt-get update && apt-get install -y \
+    curl \
+    libssl-dev \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy forge and cast from the contracts-builder stage to ensure the same
+# foundry version that compiled the contracts is used at runtime.
+COPY --from=contracts-builder /usr/local/bin/forge /usr/local/bin/forge
+COPY --from=contracts-builder /usr/local/bin/cast /usr/local/bin/cast
+
+# Copy pre-built contract artifacts and sources (forge needs both to broadcast)
+COPY --from=contracts-builder /app/contracts/contracts /app/contracts
+
+# Copy resources needed by the Rust binary (e.g. g1.point)
+COPY resources/ /app/resources/
+
+# Copy L1 chain configs
+RUN mkdir -p /app/configs/L1
+COPY --from=builder /app/fault-proof/configs/L1/ /app/configs/L1/
+
+# Copy the built binary
+COPY --from=builder /app/target/release/fetch-fault-dispute-game-config /usr/local/bin/
+
+# Copy the entrypoint script
+COPY fault-proof/deployer-entrypoint.sh /usr/local/bin/deployer-entrypoint.sh
+RUN chmod +x /usr/local/bin/deployer-entrypoint.sh
+
+ENTRYPOINT ["deployer-entrypoint.sh"]

@@ -35,7 +35,6 @@ COPY . .
 
 # Build the binaries
 RUN cargo build --release --bin proposer --features eigenda
-RUN cargo build --release --bin fetch-fault-dispute-game-config --features eigenda
 
 # Runtime stage (minimal image)
 FROM ubuntu:24.04
@@ -54,9 +53,8 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy the built binaries
+# Copy the built binary
 COPY --from=builder /app/target/release/proposer /usr/local/bin/
-COPY --from=builder /app/target/release/fetch-fault-dispute-game-config /usr/local/bin/
 
 # Set the command
 CMD ["proposer"]
