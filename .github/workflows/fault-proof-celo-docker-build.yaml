@@ -6,6 +6,11 @@ on:
       - "**"
   workflow_dispatch: {}
 
+env:
+  # Docker image refs must be lowercase; github.repository may contain uppercase.
+  REGISTRY: ghcr.io
+  REPO: ${{ github.repository }}
+
 jobs:
   build:
     strategy:
@@ -35,6 +40,10 @@ jobs:
         with:
           submodules: recursive
 
+      - name: Compute image name
+        id: image
+        run: echo "name=${REGISTRY}/${REPO,,}/${{ matrix.image.registry_name }}" >> "$GITHUB_OUTPUT"
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -49,7 +58,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}/${{ matrix.image.registry_name }}
+          images: ${{ steps.image.outputs.name }}
 
       - name: Build and push by digest
         id: build
@@ -59,7 +68,7 @@ jobs:
           file: ${{ matrix.image.file }}
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
-          outputs: type=image,name=ghcr.io/${{ github.repository }}/${{ matrix.image.registry_name }},push-by-digest=true,name-canonical=true,push=true
+          outputs: type=image,name=${{ steps.image.outputs.name }},push-by-digest=true,name-canonical=true,push=true
           cache-from: type=gha,scope=${{ matrix.image.name }}-${{ matrix.platform }}
           cache-to: type=gha,mode=max,scope=${{ matrix.image.name }}-${{ matrix.platform }}
 
@@ -101,6 +110,10 @@ jobs:
           pattern: digests-${{ matrix.image.name }}-*
           merge-multiple: true
 
+      - name: Compute image name
+        id: image
+        run: echo "name=${REGISTRY}/${REPO,,}/${{ matrix.image.registry_name }}" >> "$GITHUB_OUTPUT"
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
@@ -115,7 +128,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/${{ github.repository }}/${{ matrix.image.registry_name }}
+          images: ${{ steps.image.outputs.name }}
           tags: |
             type=ref,event=tag
             type=sha
@@ -124,7 +137,7 @@ jobs:
       - name: Create multi-arch manifest
         working-directory: /tmp/digests
         run: |
-          IMAGE=ghcr.io/${{ github.repository }}/${{ matrix.image.registry_name }}
+          IMAGE=${{ steps.image.outputs.name }}
           docker buildx imagetools create \
             $(jq -cr '.tags | map("-t " + .) | join(" ")' <<< "$DOCKER_METADATA_OUTPUT_JSON") \
             $(printf "${IMAGE}@sha256:%s " *)
