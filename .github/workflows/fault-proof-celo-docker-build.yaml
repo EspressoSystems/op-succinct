@@ -23,7 +23,7 @@ jobs:
             file: fault-proof/Dockerfile.proposer.celo
           - name: challenger
             file: fault-proof/Dockerfile.challenger.celo
-    runs-on: ${{ matrix.platform == 'linux/arm64' && 'ubuntu-24.04-arm-8core' || 'ubuntu-24.04-8core' }}
+    runs-on: ${{ matrix.platform == 'linux/arm64' && 'ubuntu-24.04-arm' || 'ubuntu-24.04-8core' }}
     permissions:
       contents: read
       packages: write
