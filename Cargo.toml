@@ -299,6 +299,7 @@ kona-providers-alloy = { git = "https://github.com/EspressoSystems/kona-celo-for
 kona-protocol = { git = "https://github.com/EspressoSystems/kona-celo-fork", branch = "espresso-integration-rebase-1" }
 kona-registry = { git = "https://github.com/EspressoSystems/kona-celo-fork", branch = "espresso-integration-rebase-1" }
 kona-genesis = { git = "https://github.com/EspressoSystems/kona-celo-fork", branch = "espresso-integration-rebase-1" }
+kona-cli = { git = "https://github.com/EspressoSystems/kona-celo-fork", branch = "espresso-integration-rebase-1" }
 
 # TODO: Remove this patch once Hokulea is upgraded to a version that includes
 # the Kona update from:
