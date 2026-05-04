@@ -111,7 +111,7 @@ dependencies = [
 [[package]]
 name = "alloy-celo-evm"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-evm 0.24.2",
@@ -2948,7 +2948,7 @@ dependencies = [
 [[package]]
 name = "celo-alloy-consensus"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -2963,7 +2963,7 @@ dependencies = [
 [[package]]
 name = "celo-alloy-network"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-network",
@@ -2977,7 +2977,7 @@ dependencies = [
 [[package]]
 name = "celo-alloy-rpc-types"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -2996,7 +2996,7 @@ dependencies = [
 [[package]]
 name = "celo-alloy-rpc-types-engine"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3012,7 +3012,7 @@ dependencies = [
 [[package]]
 name = "celo-client"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-celo-evm",
  "alloy-consensus",
@@ -3037,7 +3037,7 @@ dependencies = [
 [[package]]
 name = "celo-driver"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-primitives",
@@ -3067,7 +3067,7 @@ dependencies = [
 [[package]]
 name = "celo-executor"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-celo-evm",
  "alloy-consensus",
@@ -3095,7 +3095,7 @@ dependencies = [
 [[package]]
 name = "celo-genesis"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3115,7 +3115,7 @@ dependencies = [
 [[package]]
 name = "celo-host"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3133,7 +3133,7 @@ dependencies = [
  "clap",
  "hokulea-host-bin",
  "hokulea-proof",
- "kona-cli 0.3.2 (git+https://github.com/op-rs/kona?tag=kona-client%2Fv1.2.7)",
+ "kona-cli",
  "kona-host",
  "kona-mpt",
  "kona-preimage",
@@ -3153,7 +3153,7 @@ dependencies = [
 [[package]]
 name = "celo-proof"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3188,7 +3188,7 @@ dependencies = [
 [[package]]
 name = "celo-protocol"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -3217,7 +3217,7 @@ dependencies = [
 [[package]]
 name = "celo-registry"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-chains",
  "alloy-primitives",
@@ -3231,7 +3231,7 @@ dependencies = [
 [[package]]
 name = "celo-revm"
 version = "1.0.0"
-source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#44b8296be3baaaf3b4ae452b7068042d7f44281f"
+source = "git+https://github.com/EspressoSystems/celo-kona?branch=espresso-integration-rebase-1#8dc2e3e46ffa593cb1db41105049906d97c70bdd"
 dependencies = [
  "alloy-eips",
  "alloy-evm 0.24.2",
@@ -4481,7 +4481,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
 dependencies = [
  "libc",
- "windows-sys 0.61.2",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -5196,7 +5196,7 @@ dependencies = [
  "hana-client",
  "hana-oracle",
  "hana-proofs",
- "kona-cli 0.3.2 (git+https://github.com/op-rs/kona?tag=kona-client%2Fv1.2.7)",
+ "kona-cli",
  "kona-genesis",
  "kona-host",
  "kona-preimage",
@@ -5424,7 +5424,7 @@ dependencies = [
  "hokulea-client-bin",
  "hokulea-eigenda",
  "hokulea-proof",
- "kona-cli 0.3.2 (git+https://github.com/op-rs/kona?tag=kona-client%2Fv1.2.7)",
+ "kona-cli",
  "kona-client",
  "kona-host",
  "kona-preimage",
@@ -5737,7 +5737,7 @@ dependencies = [
  "libc",
  "percent-encoding",
  "pin-project-lite",
- "socket2 0.6.2",
+ "socket2 0.5.10",
  "system-configuration 0.7.0",
  "tokio",
  "tower-layer",
@@ -6322,27 +6322,7 @@ dependencies = [
 [[package]]
 name = "kona-cli"
 version = "0.3.2"
-source = "git+https://github.com/op-rs/kona?tag=kona-client%2Fv1.2.7#86910c9112437bbb849eca28961f813c5450e103"
-dependencies = [
- "alloy-chains",
- "alloy-primitives",
- "clap",
- "kona-genesis",
- "kona-registry",
- "libc",
- "metrics-exporter-prometheus 0.18.1",
- "metrics-process",
- "serde",
- "thiserror 2.0.18",
- "tracing",
- "tracing-appender",
- "tracing-subscriber 0.3.22",
-]
-
-[[package]]
-name = "kona-cli"
-version = "0.3.2"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-chains",
  "alloy-primitives",
@@ -6362,7 +6342,7 @@ dependencies = [
 [[package]]
 name = "kona-client"
 version = "1.0.2"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -6401,7 +6381,7 @@ dependencies = [
 [[package]]
 name = "kona-derive"
 version = "0.4.5"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -6423,7 +6403,7 @@ dependencies = [
 [[package]]
 name = "kona-driver"
 version = "0.4.0"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-consensus",
  "alloy-evm 0.24.2",
@@ -6444,7 +6424,7 @@ dependencies = [
 [[package]]
 name = "kona-executor"
 version = "0.4.0"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -6468,7 +6448,7 @@ dependencies = [
 [[package]]
 name = "kona-genesis"
 version = "0.4.5"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-chains",
  "alloy-consensus",
@@ -6488,7 +6468,7 @@ dependencies = [
 [[package]]
 name = "kona-hardforks"
 version = "0.4.5"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-eips",
  "alloy-primitives",
@@ -6499,7 +6479,7 @@ dependencies = [
 [[package]]
 name = "kona-host"
 version = "1.0.2"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -6517,7 +6497,7 @@ dependencies = [
  "ark-ff 0.5.0",
  "async-trait",
  "clap",
- "kona-cli 0.3.2 (git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1)",
+ "kona-cli",
  "kona-client",
  "kona-derive",
  "kona-driver",
@@ -6547,7 +6527,7 @@ dependencies = [
 [[package]]
 name = "kona-interop"
 version = "0.4.5"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -6569,12 +6549,12 @@ dependencies = [
 [[package]]
 name = "kona-macros"
 version = "0.1.2"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 
 [[package]]
 name = "kona-mpt"
 version = "0.3.0"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-primitives",
  "alloy-rlp",
@@ -6586,7 +6566,7 @@ dependencies = [
 [[package]]
 name = "kona-preimage"
 version = "0.3.0"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-primitives",
  "async-channel",
@@ -6600,7 +6580,7 @@ dependencies = [
 [[package]]
 name = "kona-proof"
 version = "0.3.0"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -6636,7 +6616,7 @@ dependencies = [
 [[package]]
 name = "kona-proof-interop"
 version = "0.2.0"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -6668,7 +6648,7 @@ dependencies = [
 [[package]]
 name = "kona-protocol"
 version = "0.4.5"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloc-no-stdlib",
  "alloy-consensus",
@@ -6698,7 +6678,7 @@ dependencies = [
 [[package]]
 name = "kona-providers-alloy"
 version = "0.3.3"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-consensus",
  "alloy-eips",
@@ -6729,7 +6709,7 @@ dependencies = [
 [[package]]
 name = "kona-registry"
 version = "0.4.5"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "alloy-chains",
  "alloy-eips",
@@ -6760,7 +6740,7 @@ dependencies = [
 [[package]]
 name = "kona-std-fpvm"
 version = "0.2.0"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "async-trait",
  "buddy_system_allocator",
@@ -6784,7 +6764,7 @@ dependencies = [
 [[package]]
 name = "kona-std-fpvm-proc"
 version = "0.2.0"
-source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#5aabd9f47ead27d45c201ea37711c56ee4076282"
+source = "git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1#f95b1a62aa949f8a483c27e3261d047bed1209b2"
 dependencies = [
  "cfg-if",
  "kona-std-fpvm 0.2.0 (git+https://github.com/EspressoSystems/kona-celo-fork?branch=espresso-integration-rebase-1)",
@@ -7489,7 +7469,7 @@ version = "0.50.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7957b9740744892f114936ab4a57b3f487491bbeafaf8083688b16841a4240e5"
 dependencies = [
- "windows-sys 0.61.2",
+ "windows-sys 0.59.0",
 ]
 
 [[package]]
@@ -7671,7 +7651,7 @@ version = "0.7.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ff32365de1b6743cb203b710788263c44a03de03802daf96092f2da4fe6ba4d7"
 dependencies = [
- "proc-macro-crate 3.4.0",
+ "proc-macro-crate 1.1.3",
  "proc-macro2",
  "quote",
  "syn 2.0.117",
@@ -9626,7 +9606,7 @@ dependencies = [
  "quinn-udp",
  "rustc-hash 2.1.1",
  "rustls 0.23.37",
- "socket2 0.6.2",
+ "socket2 0.5.10",
  "thiserror 2.0.18",
  "tokio",
  "tracing",
@@ -9663,9 +9643,9 @@ dependencies = [
  "cfg_aliases",
  "libc",
  "once_cell",
- "socket2 0.6.2",
+ "socket2 0.5.10",
  "tracing",
- "windows-sys 0.60.2",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -11540,7 +11520,7 @@ dependencies = [
  "errno",
  "libc",
  "linux-raw-sys 0.12.1",
- "windows-sys 0.61.2",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -14071,7 +14051,7 @@ dependencies = [
  "getrandom 0.4.2",
  "once_cell",
  "rustix 1.1.4",
- "windows-sys 0.61.2",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -15345,7 +15325,7 @@ version = "0.1.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c2a7b1c03c876122aa43f3020e6c3c3ee5c05081c9a00739faf7503aeba10d22"
 dependencies = [
- "windows-sys 0.61.2",
+ "windows-sys 0.48.0",
 ]
 
 [[package]]
